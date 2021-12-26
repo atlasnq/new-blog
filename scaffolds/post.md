@@ -1,5 +1,13 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+copyright: true
 ---
+
+
+
+{% cq %}  {% endcq %}
+
+
+<!--more-->
+

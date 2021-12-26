@@ -1,0 +1,563 @@
+
+@media screen and (min-width: 768px) {
+    body {
+    background:url(https://source.unsplash.com/random/800x600);
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:50% 50%;		
+	color: #000;	
+    }
+	
+	.site-author-name {
+		font-family: 'Pinyon Script','Parisienne',"Noto Serif SC",'EB Garamond', sans-serif;
+		font-size: 45px !important;
+	}
+
+
+	.site-title {
+		font-family: 'Parisienne','Pinyon Script','Noto Serif SC',sans-serif;
+		font-weight: bold;
+		color: #f7bb30;	
+	}
+
+
+	.site-meta .site-title {
+		font-weight: 500;
+		color: #f7bb30;	
+		font-size: 40px;
+		top: -6px !important;
+		line-height: 32px;		
+	}
+	
+	.menu .menu-item a {
+		padding: 0 22px;
+		margin-right: 0px;
+		background: none;
+		border: none;
+		border-radius: 2px;
+		transition-property: background;
+		color: #f7bb30;	
+		font-weight: 100;
+		font-size: 19px;
+		letter-spacing: 2px !important;
+	}
+	
+	.sidebar-toggle-line {
+		background: #f7bb30 !important;
+	}
+	
+	.fa-arrow-up:before {
+		content: "\f062";
+		color: #f7bb30;
+	}
+	
+	.back-to-top {
+		box-sizing: border-box;
+		position: fixed;
+		bottom: -100px;
+		right: 30px;
+		z-index: 1050;
+		padding: 0 6px;
+		width: initial;
+		background: #222;
+		font-size: 12px;
+		opacity: 1;
+		color: #f7bb30;
+		cursor: pointer;
+		text-align: center;
+		-webkit-transform: translateZ(0);
+		transition-property: bottom;
+		transition-duration: .2s;
+		transition-timing-function: ease-in-out;
+		transition-delay: 0s;
+	}
+	
+	.site-author-image {
+		display: block;
+		margin: 0 auto;
+		padding: 2px;		
+		height: auto;
+		border: 2px solid #333;
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		transition: 1.4s all;
+		//max-width: $site-author-image-width;		
+		height: $site-author-image-height;
+		//border: $site-author-image-border-width solid $site-author-image-border-color;
+	 
+		// 修改头像边框
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		// 设置旋转
+		transition: 1.4s all;
+	}
+
+}
+
+
+
+
+@media screen and (min-width: 1200px) {
+    body {
+    background:url(https://source.unsplash.com/random/1600x900);
+	/*background:url(var(--bgimg));*/	
+	/*background:url("/bgimg/{{theme.bgi}}.jpg");*/
+	/*background:url("/bgimg/70.jpg");*/
+	
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:50% 50%;		
+	color: #000;	
+    }
+	.container .header-inner {
+    width: 1001px;
+	}
+
+	.site-author-name {
+		font-family: 'Pinyon Script','Parisienne',"Noto Serif SC",'EB Garamond', sans-serif;
+		font-size: 45px !important;
+	}
+
+
+	.site-title {
+		font-family: 'Parisienne','Pinyon Script','Noto Serif SC',sans-serif;
+		font-weight: bold;
+		color: #f7bb30;	
+	}
+
+
+	.site-meta .site-title {
+		font-weight: 500;
+		color: #f7bb30;	
+		font-size: 50px;
+		top: -6px !important;
+		line-height: 32px;		
+	}
+	
+	.menu .menu-item a {
+		padding: 0 42px;
+		margin-right: 0px;
+		background: none;
+		border: none;
+		border-radius: 2px;
+		transition-property: background;
+		color: #f7bb30;	
+		font-weight: 100;
+		font-size: 19px;
+		letter-spacing: 2px !important;
+	}
+	
+	.sidebar-toggle-line {
+		background: #f7bb30 !important;
+	}
+	
+	.fa-arrow-up:before {
+		content: "\f062";
+		color: #f7bb30;
+	}
+	
+	.back-to-top {
+		box-sizing: border-box;
+		position: fixed;
+		bottom: -100px;
+		right: 30px;
+		z-index: 1050;
+		padding: 0 6px;
+		width: initial;
+		background: #222;
+		font-size: 12px;
+		opacity: 1;
+		color: #f7bb30;
+		cursor: pointer;
+		text-align: center;
+		-webkit-transform: translateZ(0);
+		transition-property: bottom;
+		transition-duration: .2s;
+		transition-timing-function: ease-in-out;
+		transition-delay: 0s;
+	}
+	
+	.site-author-image {
+		display: block;
+		margin: 0 auto;
+		padding: 2px;
+		max-width: 190px;
+		height: auto;
+		border: 2px solid #333;
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		transition: 1.4s all;
+		//max-width: $site-author-image-width;
+		max-width: 190px;
+		height: $site-author-image-height;
+		//border: $site-author-image-border-width solid $site-author-image-border-color;
+	 
+		// 修改头像边框
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		// 设置旋转
+		transition: 1.4s all;
+	}
+	// 可旋转的圆形头像,`hover`动作
+	.site-author-image:hover {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-transform: rotate(360deg);
+	}
+
+}
+
+/*适配手机屏幕样式设置*/
+@media screen and (max-width: 768px) {
+	.tagcloud {
+        display: none !important;
+    }
+
+    body {
+    background:url(https://source.unsplash.com/random/800x600);
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:50% 50%;x
+	font-size: 16px;	
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	color: #000;	
+    }
+
+	.site-author-name {
+		font-family: 'Pinyon Script','Parisienne',"Noto Serif SC",'EB Garamond', sans-serif;
+	}
+
+	.site-title {
+		font-family: 'Parisienne','Pinyon Script','Noto Serif SC',sans-serif;
+		font-weight: 500 !important;
+		color: #f7bb30;	
+		font-size: 32px !important;
+		padding: 2px;
+		/*top: -6px !important;*/
+	}
+
+	.site-nav {
+		display: none;
+		margin: 0 -10px;
+		padding: 0 10px;
+		clear: both;
+		border-top: 1px solid #f7bb30;
+	}
+
+	.btn-bar {
+		margin-top: 4px;
+		display: block;
+		width: 22px;
+		height: 2px;
+		background: #f6bb30;
+		border-radius: 1px;
+	}
+
+	
+	.menu .menu-item a {
+		padding-top: 2px;
+		padding-bottom: 2px;
+		margin-right: 0px;
+		background: none;
+		border: none;
+		border-radius: 2px;
+		font-size: 14px;
+		transition-property: background;
+		color: #f7bb30;	
+		font-weight: 100;
+		letter-spacing: 2px !important;
+	}
+}
+
+
+element.style {    
+    opacity: 1;    
+	top: 0px;
+	line-height: 100%;
+}
+
+
+.main-inner {
+    margin-top: 60px;
+    padding: 30px;
+    background: rgba(255,255,255,0.8);
+    min-height: 500px;
+    border-radius: 5px;
+}
+
+
+.header-inner {
+  opacity: 1;
+}
+.header {
+    /*background: #fefeffde;*/
+    /* height: 309px; */
+	background: #000;
+}
+
+.posts-expand .post-title-link {
+    display: inline-block;
+    position: relative;
+    color: #000;
+    border-bottom: none;
+    line-height: 1.2;
+    vertical-align: top;
+}
+
+
+
+// 字体
+.posts-expand .post-meta {
+    /*margin: 3px 0 35px 0;*/
+    color: #000;
+    font-family: 'Noto Serif SC','EB Garamond', sans-serif;
+    font-size: 12px;
+    text-align: center;	    
+	font-weight: 600;
+}
+.posts-expand .post-title, .posts-expand .post-meta {
+    text-align: center;
+    font-weight: 200;
+}
+
+
+.posts-expand .post-body {
+    text-align: justify;
+    color: #000;
+}
+
+
+
+.menu {
+    float: right;
+    margin: 8px 0 0 0;
+    line-height: 100%;
+}
+
+
+
+a {
+    color: #000;
+    text-decoration: none;
+    outline: none;
+    border-bottom: 1px solid #999;
+    word-wrap: break-word;
+}
+
+
+
+.menu .menu-item a:hover {
+    background-color: black;
+	color: #a9822a !important;
+	color: #a9822a ;
+}
+
+.logo-line-before, .logo-line-after {
+    display: none;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 75%;
+}
+
+
+.post-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+/* 自定义的button */
+
+.set_btn {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin: 0 auto;
+  
+}
+
+
+.set_btn span {
+  display: block;
+  padding: 30px;
+  color: #FFFFFF;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  float: left;
+  font-weight: 400;
+  line-height:20px;
+}
+.set_btn.out .corners {
+  position: absolute;
+  width: 100%;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+.set_btn.out .corners:before, .set_btn.out .corners:after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-color:#ffd311;
+  border-style: solid;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+.set_btn.out .corners.top:before {
+  border-width: 1px 0 0 1px;
+}
+.set_btn.out .corners.top:after {
+  border-width: 1px 1px 0 0;
+}
+.set_btn.out .corners.bottom:before {
+  border-width: 0 0 1px 1px;
+}
+.set_btn.out .corners.bottom:after {
+  border-width: 0 1px 1px 0;
+}
+.set_btn.out .corners:before {
+  left: 0;
+}
+.set_btn.out .corners:after {
+  right: 0;
+}
+.set_btn.out .corners.top {
+  top: 0;
+}
+.set_btn.out .corners.bottom {
+  bottom: 7px;
+}
+.set_btn.out:hover .corners:before {
+  left: 20px;
+}
+.set_btn.out:hover .corners:after {
+  right: 20px;
+}
+.set_btn.out:hover .corners.top {
+  top: 20px;
+}
+.set_btn.out:hover .corners.bottom {
+  bottom: 27px;
+}
+.set_btn.in .corners {
+  position: absolute;
+  width: 100%;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+.set_btn.in .corners:before, .set_btn.in .corners:after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-color: #FFB902;
+  border-style: solid;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+.set_btn.in .corners.top:before {
+  border-width: 1.8px 0 0 1.8px;
+}
+.set_btn.in .corners.top:after {
+  border-width: 1.8px 1.8px 0 0;
+}
+.set_btn.in .corners.bottom:before {
+  border-width: 0 0 1.8px 1.8px;
+}
+.set_btn.in .corners.bottom:after {
+  border-width: 0 1.8px 1.8px 0;
+}
+.set_btn.in .corners:before {
+  left: 20px;
+}
+.set_btn.in .corners:after {
+  right: 20px;
+}
+.set_btn.in .corners.top {
+  top: 20px;
+}
+.set_btn.in .corners.bottom {
+  bottom: 27px;
+}
+.set_btn.in:hover .corners:before {
+  left: 0;
+}
+.set_btn.in:hover .corners:after {
+  right: 0;
+}
+.set_btn.in:hover .corners.top {
+  top: 0;
+}
+.set_btn.in:hover .corners.bottom {
+  bottom: 7px;
+}
+
+.set_btn.yellow span {
+  color:#333;
+}
+.set_btn.yellow .corners:after, .set_btn.yellow .corners:before {
+	border-color: #ffd311;	
+}
+.set_btn span a {
+	color: #000;
+    text-decoration: none;
+	border-bottom: 0;
+}
+
+.set_btn span a:hover {
+    /* color: #222; */
+    /* border-bottom-color: #222; */
+}
+
+.post-body .blockquote-center::after{
+	bottom: -20px;
+    background-image: url(../images/quote-r.svg);
+    /* border-bottom: 1px solid #ccc; */
+    background-position: 100% 8px;
+	border-bottom: 0!important;
+}
+
+
+.post-body .blockquote-center::before{
+	top: -20px;
+    background-image: url(../images/quote-l.svg);
+    /* border-top: 1px solid #ccc; */
+	border-top: 0!important;
+}
+
+
+//作者栏
+.site-author-image {
+    display: block;
+    margin: 0 auto;
+    padding: 2px;
+    max-width: 184px;
+    height: auto;
+    border: 2px solid #333;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    transition: 1.4s all;
+}
+
+.sidebar-inner {
+    position: relative;
+    padding: 60px 10px;
+    color: #999;
+    text-align: center;
+}

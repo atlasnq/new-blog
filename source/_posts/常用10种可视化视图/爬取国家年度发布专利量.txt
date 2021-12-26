@@ -1,0 +1,182 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Apr 27 19:17:43 2019
+
+@author: gogogo
+"""
+
+import requests
+import time
+import pandas as pd
+import random
+
+# 读取自身的数据集
+firm = pd.read_excel(r"D:\公司基本状况文件1997-2018.xlsx") # 此处访问需要访问公司的信息，需要股票代码与股票名称
+firm1 = firm1.copy()
+
+
+# 示例数据 下面创建一个数据用作演示  import包之后，可从此处开始运行
+firm1 = pd.DataFrame({'Conme': ["中国平安保险（集团）股份有限公司", "万科企业股份有限公司"],    #公司名称 'Conme'
+        'Stkcd': ["601318", "000002"]})  #  公司股票代码
+
+ # 因为查询专利需要登录，所以这里用到登录的cookie，这个需要填写自身账号的登录cookie
+ 
+###################注意更改为自身的cookie#####################
+
+#访问网页  总专利数量
+def scrap_patent(name):
+    global count 
+    # name = '万科企业股份有限公司'
+    url = "http://pss-system.cnipa.gov.cn/sipopublicsearch/patentsearch/showStatistics-showStatistics.shtml"
+    headers = {"Accept": "application/json, text/javascript, */*; q=0.01"
+    ,"Accept-Encoding": "gzip, deflate"
+    ,"Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
+    ,"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    ,"Cookie": "WEE_SID=VEIBdJaqO32cJFiiJfVUicHfqyZSBUJF5!-1741080261!1567687481002; IS_LOGIN=true; JSESSIONID=VEIBdJaqO32cJFiiJfVUicHfqyZSBUJF5Us-yZKpm0XKs0gHbZru!-429666580!-1741080261; avoid_declare=declare_pass"
+     # 因为查询专利需要登录，所以这里用到登录的cookie，这个需要填写自身账号的登录cookie
+     # 这里填写的是当时爬取用的cookie，换电脑用就会失效
+    ,"Host": "pss-system.cnipa.gov.cn"
+    ,"Origin": "http://pss-system.cnipa.gov.cn"
+    ,"Proxy-Connection":"keep-alive"
+    ,"Referer": "http://pss-system.cnipa.gov.cn/sipopublicsearch/portal/uiIndex.shtml"
+    ,"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36"
+    ,"X-Requested-With": "XMLHttpRequest"}
+    data = {"searchCondition.executableSearchExp": "VDB:(IBI= %s)" % name
+            ,"searchCondition.sortIndexCode": "ADY"}
+    #  如果无数据 result  == None
+    try:
+        response = requests.post(url,data = data,headers = headers)
+    except:
+        print('再次访问，all')
+        time.sleep(1)
+        response = requests.post(url,data = data,headers = headers)
+    allpatent1 = response.json()
+    all_patent_year = allpatent1['result']['classInfoList']
+    if all_patent_year: # 存在值即为真
+        for i in range(len(all_patent_year)):
+            df.at[count,'Year'] = all_patent_year[i]["strValue"]
+            # 总的专利数量
+            df.at[count,'all_patent'] = all_patent_year[i]['IValidNum']
+            df.at[count,'Name'] = name
+            df.at[count,'Stkcd'] = stkcd
+            count +=1
+        # 
+        url = 'http://pss-system.cnipa.gov.cn/sipopublicsearch/patentsearch/showStatistics-showStatistics.shtml'
+        # 发明
+        data = {"searchCondition.executableSearchExp": "VDB:(IBI='%s' AND ((DOC_TYPE='I')))" % name
+        ,"searchCondition.sortIndexCode": "ADY"}
+        try:
+            response = requests.post(url,data = data,headers = headers)
+        except:
+            print('再次访问，I')
+            time.sleep(1)
+            response = requests.post(url,data = data,headers = headers)
+        innovation_patent = response.json()
+        innovation_patent_year = innovation_patent['result']['classInfoList']
+        if innovation_patent_year : # 存在值即为真
+            for i in range(len(innovation_patent_year)):
+                # i = 1
+                df.at[count,'Year'] = innovation_patent_year[i]["strValue"]
+                # 总的专利数量
+                df.at[count,'innovation_patent'] = innovation_patent_year[i]['IValidNum']
+                df.at[count,'Name'] = name
+                df.at[count,'Stkcd'] = stkcd
+                count +=1
+        time.sleep(random.random())
+        #  实用性专利
+        data = {"searchCondition.executableSearchExp": "VDB:(IBI='%s' AND ((DOC_TYPE='U')))" % name
+        ,"searchCondition.sortIndexCode": "ADY"}
+        try:
+            response = requests.post(url,data = data,headers = headers)
+        except:
+            time.sleep(1)
+            print('再次访问，U')
+            response = requests.post(url,data = data,headers = headers)
+        useful_patent = response.json()
+        useful_patent_year = useful_patent['result']['classInfoList']
+        if useful_patent_year : # 存在值即为真
+            for i in range(len(useful_patent_year)):
+                # i = 1
+                df.at[count,'Year'] = useful_patent_year[i]["strValue"]
+                # 总的专利数量
+                df.at[count,'useful_patent'] = useful_patent_year[i]['IValidNum']
+                df.at[count,'Name'] = name
+                df.at[count,'Stkcd'] = stkcd
+                count +=1
+        time.sleep(random.random())
+        # 外观设计  D
+        data = {"searchCondition.executableSearchExp": "VDB:(IBI='%s' AND ((DOC_TYPE='D')))" % name 
+        ,"searchCondition.sortIndexCode": "ADY"}
+        try:
+            response = requests.post(url,data = data,headers = headers)
+        except:
+            print('再次访问，D')
+            time.sleep(1)
+            response = requests.post(url,data = data,headers = headers)
+        design_patent = response.json()
+        design_patent_year = design_patent['result']['classInfoList']
+        if design_patent_year: # 存在值即为真
+            for i in range(len(design_patent_year)):
+                # i = 1
+                df.at[count,'Year'] = design_patent_year[i]["strValue"]
+                # 总的专利数量
+                df.at[count,'design_patent'] = design_patent_year[i]['IValidNum']
+                df.at[count,'Name'] = name
+                df.at[count,'Stkcd'] = stkcd
+                count +=1
+        time.sleep(random.random())
+    else:
+        print('%s,未找到' % name)
+
+
+     
+count = 0
+columns_name = ['Stkcd','Name','Year','all_patent','innovation_patent','useful_patent','design_patent']
+df = pd.DataFrame(columns= columns_name, index = range(1)) # 创建一个新的表格用于保存数据
+for i in range(firm1.shape[0]):
+    name = firm1.at[i,'Conme']
+    stkcd = firm1.at[i,'Stkcd']
+    print(i,name)
+    scrap_patent(name)
+
+
+#去掉重复的数据
+df1 = df.drop_duplicates()
+
+
+#  将分开保存的部分合并为一行
+# df all
+alldf = df1[['Stkcd','Name','Year','all_patent']]
+alldf = alldf[alldf['all_patent'].astype(str) != 'nan']
+alldf.index = range(alldf.shape[0])
+# df 'innovation_patent'
+innodf = df1[['Stkcd','Name','Year','innovation_patent']]
+innodf = innodf[df1['innovation_patent'].astype(str) != 'nan']
+innodf.index = range(innodf.shape[0])
+# df 'use_patent'
+usedf = df1[['Stkcd','Name','Year','useful_patent']]
+usedf = usedf[df1['useful_patent'].astype(str) != 'nan']
+usedf.index = range(usedf.shape[0])
+# design df
+designdf = df1[['Stkcd','Name','Year','design_patent']]
+designdf = designdf[df1['design_patent'].astype(str) != 'nan']
+designdf.index = range(designdf.shape[0])
+
+
+# merge
+merge1 = pd.merge(alldf,innodf,how = 'outer', on = ['Stkcd','Year','Name'])
+merge2 = pd.merge(merge1,usedf,how = 'outer',on =  ['Stkcd','Year','Name'])
+merge3 = pd.merge(merge2,designdf,how = 'outer',on =  ['Stkcd','Year','Name'])
+merge3.columns
+merge3 =merge3.rename(columns = {'Stkcd':'股票代码', 'Name':'公司名称', 'Year':"年份", 
+                                 'all_patent':"所有专利", 
+                                 'innovation_patent':"发明",
+       'useful_patent':"实用新型", 'design_patent':"外观设计专利"})
+
+merge3 = merge3.astype(str).replace("nan","0")
+
+# 将多累专利结果进行合并
+merge3.to_excel('D:\分类合并专利数据.xlsx',
+                index =False)
+
+

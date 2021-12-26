@@ -3,19 +3,21 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: Naqin
+subtitle: Run! Forest,run!
+description: blog,python,django,flask
 keywords:
-author: John Doe
-language: en
+author: Naqin
+language: zh-Hans
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
-permalink: :year/:month/:day/:title/
+url: https://chennq.top
+root: /
+permalink: :category/:year:month:day-:urlname.html
 permalink_defaults:
+  urlname: index
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -40,13 +42,13 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: false
@@ -68,6 +70,9 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+ python学习: learn python
+ Linux学习: learn Linux
+ 
 tag_map:
 
 # Metadata elements
@@ -97,9 +102,64 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# 宠物
+live2d:
+  enable: false #是否允许出现
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  model:
+    use: live2d-widget-model-shizuku #模型名称
+    scale: 1
+    hHeadPos: 0.5
+    vHeadPos: 0.618
+  display:
+    superSample: 2
+    width: 240
+    height: 400
+    position: left # 左侧还是右侧
+    hOffset: 10
+    vOffset: 0 # 离底部距离
+  mobile:
+    show: false # 手机客户端是否可见，推荐不可见，不然会影响阅读
+    scale: 0.5
+  react:
+    opacityDefault: 0.7
+    opacityOnHover: 0.2
+ 
+# 自动生成sitemap
+sitemap:
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml
+
+nofollow:
+    enable: false
+    exclude: # 例外链接
+    - https://atlasnq.github.io/
+    #- 友链地址
+    
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+
+# hexo-tag-cloud
+tag_cloud:
+    textFont: Noto Serif SC,sans-serif
+    textColour: '000000'
+    textHeight: 22
+    outlineColour: '#E2E1D1'
+    maxSpeed: 0.10
+    minSpeed: 0.03
+    decel: 0.55
